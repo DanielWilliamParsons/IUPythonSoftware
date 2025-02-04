@@ -11,7 +11,7 @@ REMOTE_URL="git@github.com:$GITHUB_USERNAME/$REPO_NAME.git"
 # Initialize git repository
 git init
 
-# Add remote origin (if not already added)
+# Add remote origin
 git remote add origin "$REMOTE_URL" 2>/dev/null || echo "⚠️ Remote origin already exists."
 
 # Add all files, commit, and push to GitHub
