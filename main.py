@@ -2,7 +2,12 @@ import Controller as C
 
 def main():
     controller = C.Controller()
-    print(controller)
+    pathToData = ""
+    nameForData = ""
+    controller.uploadData(pathToData, nameForData)
+    controller.visualizeData("lineChartr")
+    controller.runRegressionAnalysis()
+    controller.runEvaluation
 
 if __name__ == '__main__':
     main()

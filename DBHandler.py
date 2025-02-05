@@ -5,13 +5,13 @@ import sqlalchemy as db
 class DBHandler(object):
 
     def __init__(self):
-        foo = None
+        print("Initializing the database handler instance")
 
     def createTable(self):
-        table = None
+        print("Creating a new table")
 
     def insertData(self):
-        table = None
+        print("Inserting data into the table")
 
     def readData(self):
-        table = None
+        print("Reading data from the table")
