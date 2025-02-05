@@ -4,7 +4,7 @@ def main():
     controller = C.Controller()
     pathToData = ""
     nameForData = ""
-    controller.uploadData(pathToData, nameForData)
+    controller.uploadData("./data/Advertising.csv", nameForData)
     controller.visualizeData("lineChartr")
     controller.runRegressionAnalysis()
     controller.runEvaluation

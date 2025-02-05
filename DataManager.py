@@ -27,8 +27,9 @@ class DataManager(object):
         :param pathToFile: identifies the file in the local system where the data is located
         :param nameForData: user provides a name to identify the data in the database
         '''
+        self.data = pd.read_csv(pathToFile)
+        print(self.data)
         self.nameForData = nameForData
-        self.data #TODO Set this
         print("Importing the data")
 
     def readData(self, nameForData=None):
