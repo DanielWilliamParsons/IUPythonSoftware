@@ -3,6 +3,7 @@ import pymysql
 import sqlalchemy as db
 import os
 from sqlalchemy.exc import OperationalError
+from sqlalchemy import text
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,7 +20,7 @@ class DBHandler(object):
             # Connect to the database without specifying the database to check it exists and create it if not
             temp_engine = db.create_engine(f'mysql+pymysql://{self.username}:{self.password}@localhost')
             temp_connection = temp_engine.connect()
-            temp_connection.execute(f"CREATE DATABASE IF NOT EXISTS {self.database_name}")
+            temp_connection.execute(text(f"CREATE DATABASE IF NOT EXISTS {self.database_name}"))
             temp_connection.close()
 
             # Now connect to the specific database
