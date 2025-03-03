@@ -27,7 +27,9 @@ class Analyzer(object):
         y = pandasTable[depVar].values
         beta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y) # Normal Equation
         print(f"Regression Coefficients: {beta}")
-        pandasTable['regression'] = beta[0] + beta[1] * pandasTable[indVar]
+        
+        # Return a panda's dataframe that contains the regression coefficients
+        return pd.DataFrame(beta, index=['Intercept', indVar], columns=['Coefficient'])
 
     def evaluateRegression(self):
         '''
