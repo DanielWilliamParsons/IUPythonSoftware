@@ -32,7 +32,7 @@ class DataManager(object):
         self.nameForData = nameForData
         print("Importing the data")
 
-    def readData(self, nameForData=None):
+    def readDataFromDB(self, nameForData=None):
         '''
         Method to read data from the database and store it locally
         :param nameForData: Optional variable to find the data in the database.

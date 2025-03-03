@@ -15,7 +15,7 @@ class Controller(object):
         Calls the DataManager
         '''
         self.dataManager.importData(pathToDataFile, nameForData)
-        self.dataManager.readData(nameForData)
+        # self.dataManager.readDataFromDB(nameForData)
         print("uploading data through the controller")
 
     def visualizeData(self, chartType):
