@@ -1,14 +1,16 @@
 import Controller as C
 
 def main():
-    controller = C.Controller()
+    controller = C.CategorizerController()
     pathToData = ""
     # Upload the ideal functions data
     nameForData = "ideal"
     controller.uploadData("./data/Advertising.csv", nameForData)
+
     # Upload the training data
     nameForData = "training"
     controller.uploadData("./data/Advertising.csv", nameForData)
+
     # Upload the test data
     nameForData = "test"
     controller.uploadData("./data/Advertising.csv", nameForData)

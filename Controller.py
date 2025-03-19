@@ -2,7 +2,7 @@ import Analyzer as a
 import DataManager as dm
 import Visualizer as vl
 
-class Controller(object):
+class CategorizerController(object):
 
     def __init__(self):
         print("Initializing an instance of the Controller class")
