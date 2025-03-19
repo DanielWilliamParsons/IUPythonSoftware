@@ -24,9 +24,9 @@ class Controller(object):
         '''
         Method to load training, test and ideal data into memory
         '''
-        self.trainingDataManager.readDataFromDB()
-        self.testDataManager.readDataFromDB()
-        self.idealDataManager.readDataFromDB()
+        self.trainingDataManager.readDataFromDB(nameForData="training")
+        self.testDataManager.readDataFromDB(nameForData="test")
+        self.idealDataManager.readDataFromDB(nameForData="ideal")
         print("Loading data to memory")
 
     def visualizeData(self, chartType):
