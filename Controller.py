@@ -18,7 +18,6 @@ class Controller(object):
         Calls the DataManager
         '''
         self.dataManager.importData(pathToDataFile, nameForData)
-        # self.dataManager.readDataFromDB(nameForData)
         print("uploading data through the controller")
 
     def loadDataToMemory(self):
@@ -52,8 +51,9 @@ class Controller(object):
         print("Running the regression analysis")
 
 
-    def runEvaluation(self):
+    def categorizeTestData(self):
         '''
-        Method to run the evaluation on the regression analysis
+        Method to call the Analyzer to categorize the test data
         '''
-        print("Running the evaluation")
+        mappedTestData = self.analyzer.categorizeTestData()
+        print("Categorizing the test data")

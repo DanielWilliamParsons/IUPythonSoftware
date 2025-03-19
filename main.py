@@ -5,9 +5,10 @@ def main():
     pathToData = ""
     nameForData = ""
     controller.uploadData("./data/Advertising.csv", nameForData)
+    controller.loadDataToMemory()
     controller.visualizeData("lineChartr")
     controller.selectIdealFunction()
-    controller.runEvaluation
+    controller.categorizeTestData()
 
 if __name__ == '__main__':
     main()
