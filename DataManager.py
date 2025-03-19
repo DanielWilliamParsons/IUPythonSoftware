@@ -41,8 +41,6 @@ class DataManager(object):
             foo=0 # Delete this
         print("Reading the data")
 
-        
-
     def exportData(fileName=None):
         '''
         Method to export outputData to a file
@@ -54,6 +52,7 @@ class DataManager(object):
         print("Exporting the data")
 
         # Save self.outputData to a file
+
 
 class DataManagerForType(DataManager):
     '''

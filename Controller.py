@@ -7,6 +7,9 @@ class Controller(object):
     def __init__(self):
         print("Initializing an instance of the Controller class")
         self.analyzer = a.Analyzer()
+        self.trainingDataManager = dm.DataManagerForType("training")
+        self.testDataManager = dm.DataManagerForType("test")
+        self.idealDataManager = dm.DataManagerForType("ideal")
         self.dataManager = dm.DataManager()
         self.visualizer = vl.Visualizer()
 
@@ -17,6 +20,15 @@ class Controller(object):
         self.dataManager.importData(pathToDataFile, nameForData)
         # self.dataManager.readDataFromDB(nameForData)
         print("uploading data through the controller")
+
+    def loadDataToMemory(self):
+        '''
+        Method to load training, test and ideal data into memory
+        '''
+        self.trainingDataManager.readDataFromDB()
+        self.testDataManager.readDataFromDB()
+        self.idealDataManager.readDataFromDB()
+        print("Loading data to memory")
 
     def visualizeData(self, chartType):
         '''
@@ -36,6 +48,7 @@ class Controller(object):
         '''
         Method to run the regression analysis
         '''
+        idealFunctionsData = self.analyzer.selectIdealFunction()
         print("Running the regression analysis")
 
 
