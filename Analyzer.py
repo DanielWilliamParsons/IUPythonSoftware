@@ -28,7 +28,7 @@ class Analyzer(object):
 
     def categorizeTestData(self, idealFunctions, trainingData, idealFunctionsData, testData):
         '''
-        Categorize the test data to the correct ideal function
+        Map the test data to the correct ideal function
         :param idealFunctions: a pandas dataframe containing the ideal functions
         :param trainingData: a pandas dataframe containing the training data
         :param idealFunctionsData: a pandas dataframe containing the ideal functions for each trainingData along with its maximum deviation

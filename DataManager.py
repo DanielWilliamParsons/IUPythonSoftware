@@ -10,13 +10,12 @@ class DataManager(object):
         '''
         Initialize the class
         :param self.database: an instance of the DBHandler class to handle CRUD operations
-        :param nameForData: a string identifier for the name of the data in the database
+        :param nameForData: a string identifier for the name of the table in the database
         :param data: a pandas dataframe containing a copy of the data from the database
         '''
         self.database = db.DBHandler()
         self.nameForData = nameForData
         self.data = "" # TODO update this
-        self.outputData = "" # TODO update this
         print("Initializing the DataManager")
 
     def importData(self, pathToFile, nameForData):
@@ -55,3 +54,15 @@ class DataManager(object):
         print("Exporting the data")
 
         # Save self.outputData to a file
+
+class DataManagerForType(DataManager):
+    '''
+    A subclass of DataManager to identify data of a specific type
+    '''
+    def __init__(self, nameForData=None, dataType=None):
+        '''
+        Initialize the class
+        '''
+        super().__init__(nameForData)
+        self.dataType = dataType
+        print("Initializing the DataManagerForType")
