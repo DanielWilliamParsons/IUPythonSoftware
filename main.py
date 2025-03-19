@@ -6,7 +6,7 @@ def main():
     nameForData = ""
     controller.uploadData("./data/Advertising.csv", nameForData)
     controller.visualizeData("lineChartr")
-    controller.runRegressionAnalysis()
+    controller.selectIdealFunction()
     controller.runEvaluation
 
 if __name__ == '__main__':

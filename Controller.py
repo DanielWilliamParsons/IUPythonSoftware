@@ -32,7 +32,7 @@ class Controller(object):
         print("Visualizing data through the controller")
 
 
-    def runRegressionAnalysis(self):
+    def selectIdealFunction(self):
         '''
         Method to run the regression analysis
         '''

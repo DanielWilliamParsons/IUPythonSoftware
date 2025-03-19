@@ -5,7 +5,8 @@ class Analyzer(object):
     '''
     The Analyzer class performs operations
     on data.
-    These operations include regression analysis and evaluation of best fit model
+    These operations include selecting an ideal function
+    and categorizing the test data.
     '''
 
     def __init__ (self):
@@ -13,26 +14,27 @@ class Analyzer(object):
         Initialize the Analyzer class.
         '''
 
-    def simpleLinearRegression(self, pandasTable, indVar, depVar):
+    def selectIdealFunction(self, idealFunctions, trainingData):
         '''
-        Runs a regression analysis on data in the pandasTable.
-        Note, since the pandasTable is mutable, it is modified in place
-        so no need to return a value here.
-        :param pandasTable: property of DataManager instance.
-        :param indVar: independent variable
-        :param depVar: dependent variable
+        Selects the ideal function for the data
+        It also calls an algorithm to calculate the maximum deviation on each training dataset
+        :param idealFunctions: a pandas dataframe containing the ideal functions
+        :param trainingData: a pandas dataframe containing the training data
+        :return: a pandas dataframe containing the ideal functions for each trainingData along with its maximum deviation
         '''
-        print("Running a simple linear regression")
-        X = np.c_[np.ones(pandasTable[indVar].shape[0]), pandasTable[indVar]]
-        y = pandasTable[depVar].values
-        beta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y) # Normal Equation
-        print(f"Regression Coefficients: {beta}")
-        
-        # Return a panda's dataframe that contains the regression coefficients
-        return pd.DataFrame(beta, index=['Intercept', indVar], columns=['Coefficient'])
+        idealFunctionsData = pd.DataFrame()
+        print('Selecting the idea function')
+        return idealFunctionsData
 
-    def evaluateRegression(self):
+    def categorizeTestData(self, idealFunctions, trainingData, idealFunctionsData, testData):
         '''
-        Evaluates the regression
+        Categorize the test data to the correct ideal function
+        :param idealFunctions: a pandas dataframe containing the ideal functions
+        :param trainingData: a pandas dataframe containing the training data
+        :param idealFunctionsData: a pandas dataframe containing the ideal functions for each trainingData along with its maximum deviation
+        :param testData: a pandas dataframe containing the test data
+        :return: a pandas dataframe containing the test data mapped to the correct ideal function
         '''
-        print("Evaluating the simple linear regression")
+        mappedTestData = pd.DataFrame()
+        print("Categorizing the test data.")
+        return mappedTestData
