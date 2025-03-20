@@ -29,6 +29,7 @@ class DataManager(object):
         self.data = pd.read_csv(pathToFile)
         print(self.data)
         self.nameForData = nameForData
+        self.database.createTableAndInsertData(self.data, self.nameForData)
         print("Importing the data")
 
     def readDataFromDB(self, nameForData=None):

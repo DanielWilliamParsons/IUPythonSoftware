@@ -11,6 +11,11 @@ load_dotenv()
 class DBHandler(object):
 
     def __init__(self):
+        '''
+        Initialize a DBHandler object.
+        Create a database connection and store the connection as an instance variable.
+        If the database does not exist, it will get created here.
+        '''
         self.username = os.getenv('DB_USERNAME', 'root')
         self.password = os.getenv('DB_PASSWORD', '')
         self.database_name = 'regression'
@@ -38,11 +43,25 @@ class DBHandler(object):
             print("    - Windows: Download from https://dev.mysql.com/downloads/installer/")
             exit(1)
 
+    def createTableAndInsertData(self, pandasDataFrame, nameForData):
+        '''
+        Check that a table with the nameForData name does not already exist
+        If it does not, create a new table with the nameForData name and insert the data from the pandas dataframe into the table.
+        If it does, skip creating the table and return.
+        :param pandasDataFrame: a pandas dataframe containing the data to be stored in the table
+        :param nameForData: a string identifier for the name of the table in the database
+        '''
+        # Check that a table with the nameForDataname does not already exist
+        inspector = db.inspect(self.engine)
+        tables = inspector.get_table_names()
+        if nameForData not in tables:
+            # Create a new table
+            print("Creating a new table")
+            pandasDataFrame.to_sql(nameForData, self.engine)
+        else:
+            print("Table already exists. Skipping table creation.")
 
-        
-
-    def createTable(self):
-        print("Creating a new table")
+        return
 
     def insertData(self):
         print("Inserting data into the table")

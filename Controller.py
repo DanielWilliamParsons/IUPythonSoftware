@@ -29,20 +29,6 @@ class CategorizerController(object):
         self.idealDataManager.readDataFromDB(nameForData="ideal")
         print("Loading data to memory")
 
-    def visualizeData(self, chartType):
-        '''
-        Method to visualize the data
-        :param chartType: string to indicate which visualization type to invoke
-        '''
-        method = getattr(self.visualizer, chartType, None)
-        if callable(method):
-            method(self.dataManager)
-        else:
-            print(f"Error: '{chartType}' is not a valid visualization method.")
-            # Handle the error for the user
-        print("Visualizing data through the controller")
-
-
     def selectIdealFunction(self):
         '''
         Method to run the regression analysis
@@ -57,3 +43,16 @@ class CategorizerController(object):
         '''
         mappedTestData = self.analyzer.categorizeTestData()
         print("Categorizing the test data")
+
+    def visualizeData(self, chartType):
+        '''
+        Method to visualize the data
+        :param chartType: string to indicate which visualization type to invoke
+        '''
+        method = getattr(self.visualizer, chartType, None)
+        if callable(method):
+            method(self.dataManager)
+        else:
+            print(f"Error: '{chartType}' is not a valid visualization method.")
+            # Handle the error for the user
+        print("Visualizing data through the controller")
