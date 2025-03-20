@@ -1,6 +1,7 @@
 import sqlalchemy
 import pymysql
 import sqlalchemy as db
+import pandas as pd
 import os
 from sqlalchemy.exc import OperationalError
 from sqlalchemy import text
@@ -56,7 +57,7 @@ class DBHandler(object):
         tables = inspector.get_table_names()
         if nameForData not in tables:
             # Create a new table
-            print("Creating a new table")
+            print("Creating a new table and inserting data into the table.")
             pandasDataFrame.to_sql(nameForData, self.engine)
         else:
             print("Table already exists. Skipping table creation.")
@@ -66,5 +67,13 @@ class DBHandler(object):
     def insertData(self):
         print("Inserting data into the table")
 
-    def readData(self):
-        print("Reading data from the table")
+    def readData(self, tableName):
+        '''
+        Reads data into a pandas dataframe from the table with the tableName name.
+        Returns the pandas dataframe.
+        :param tableName: a string identifier for the name of the table in the database from which to read.
+        :return: a pandas dataframe containing the data from the table.
+        '''
+        print(f"Reading data from the table {tableName}.")
+        dataframe = pd.read_sql(f"SELECT * FROM {tableName}", self.engine)
+        return dataframe
