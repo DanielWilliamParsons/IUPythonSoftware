@@ -7,10 +7,10 @@ class CategorizerController(object):
     def __init__(self):
         print("Initializing an instance of the Controller class")
         self.analyzer = a.Analyzer()
-        self.trainingDataManager = dm.DataManager("training")
-        self.testDataManager = dm.DataManager("test")
-        self.idealDataManager = dm.DataManager("ideal")
-        self.dataManager = dm.DataManager()
+        self.trainingDataManager = dm.DataManagerType("training") # Specify the training data
+        self.testDataManager = dm.DataManagerType("test") # Specify the test data
+        self.idealDataManager = dm.DataManagerType("ideal") # Specify the ideal data
+        self.dataManager = dm.DataManager() # A general data manager to handle uploading data to a database
         self.visualizer = vl.Visualizer()
 
     def uploadData(self, pathToDataFile, nameForData):
