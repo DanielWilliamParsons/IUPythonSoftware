@@ -7,9 +7,9 @@ class CategorizerController(object):
     def __init__(self):
         print("Initializing an instance of the Controller class")
         self.analyzer = a.Analyzer()
-        self.trainingDataManager = dm.DataManagerForType("training")
-        self.testDataManager = dm.DataManagerForType("test")
-        self.idealDataManager = dm.DataManagerForType("ideal")
+        self.trainingDataManager = dm.DataManager("training")
+        self.testDataManager = dm.DataManager("test")
+        self.idealDataManager = dm.DataManager("ideal")
         self.dataManager = dm.DataManager()
         self.visualizer = vl.Visualizer()
 
@@ -24,10 +24,10 @@ class CategorizerController(object):
         '''
         Method to load training, test and ideal data into memory
         '''
-        self.trainingDataManager.readDataFromDB(nameForData="training")
-        self.testDataManager.readDataFromDB(nameForData="test")
-        self.idealDataManager.readDataFromDB(nameForData="ideal")
         print("Loading data to memory")
+        self.trainingDataManager.readDataFromDB()
+        self.testDataManager.readDataFromDB()
+        self.idealDataManager.readDataFromDB()
 
     def selectIdealFunction(self):
         '''
