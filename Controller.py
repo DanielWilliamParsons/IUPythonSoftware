@@ -29,6 +29,14 @@ class CategorizerController(object):
         self.testDataManager.readDataFromDB()
         self.idealDataManager.readDataFromDB()
 
+    def deleteDataWithName(self, dataName):
+        '''
+        Method to delete data from the database
+        :param dataName: string to identify the data
+        '''
+        print("Deleting data with name: ", dataName)
+        self.dataManager.deleteData(dataName)
+
     def selectIdealFunction(self):
         '''
         Method to run the regression analysis

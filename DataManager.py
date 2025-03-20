@@ -55,3 +55,13 @@ class DataManager(object):
         print("Exporting the data")
 
         # Save self.outputData to a file
+    
+    def deleteData(self, dataName=None):
+        '''
+        Method to delete data from the database
+        '''
+        print("Deleting data")
+        if dataName:
+            self.database.deleteData(dataName)
+        else:
+            self.database.deleteData(self.nameForData)

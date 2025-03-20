@@ -77,3 +77,11 @@ class DBHandler(object):
         print(f"Reading data from the table {tableName}.")
         dataframe = pd.read_sql(f"SELECT * FROM {tableName}", self.engine)
         return dataframe
+    
+    def deleteData(self, tableName):
+        '''
+        Deletes the table with the tableName name.
+        :param tableName: a string identifier for the name of the table in the database to delete.
+        '''
+        print(f"Deleting the table {tableName}.")
+        self.engine.execute(f"DROP TABLE {tableName}")
